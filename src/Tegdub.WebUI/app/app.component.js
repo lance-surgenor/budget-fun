@@ -9,19 +9,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var fund_service_1 = require('./fund/fund.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(fundService) {
+        this.fundService = fundService;
         this.title = 'Tegdub';
     }
     AppComponent.prototype.ngOnInit = function () {
+        this.getFunds();
+        // this.getFundsRaw();
+    };
+    AppComponent.prototype.getFunds = function () {
+        var _this = this;
+        this.fundService.getFunds()
+            .then(function (funds) { return _this.funds = funds; });
+    };
+    AppComponent.prototype.getFundsRaw = function () {
+        this.fundService.getFundsRaw()
+            .then(function (data) {
+            alert("Alert");
+            console.error("Error Raw: ", data);
+            console.log(data);
+            alert("second alert");
+        });
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'tegdub',
-            template: "\n    <h1>{{title}}\n    <h2>Testing</h2>\n    ",
-            styles: ["\n    "]
+            template: "\n    <h1>{{title}}\n    <h2>Funds</h2>\n    <ul>\n        <li *ngFor=\"let fund of funds\">\n            Fund: <span>{{fund.name}}</span>\n        </li>\n    </ul>\n    ",
+            styles: ["\n    "],
+            providers: [
+                fund_service_1.FundService
+            ]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [fund_service_1.FundService])
     ], AppComponent);
     return AppComponent;
 }());
