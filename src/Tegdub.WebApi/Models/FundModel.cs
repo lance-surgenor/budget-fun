@@ -3,13 +3,13 @@ using Tegdub.Infrastructure;
 
 namespace Tegdub.WebApi.Models
 {
-    [DataContract]
+    [DataContract(Name = "Fund")]
     public class FundModel
     {
-        [DataMember(Name="Name")]
+        [DataMember(Name = "Name")]
         public string Name { get; set; }
 
-        [DataMember(Name="Balance")]
+        //[DataMember(Name = "Balance")]
         public MoneySerialisable Balance { get; set; }
 
         public Domain.Fund ToFund()
