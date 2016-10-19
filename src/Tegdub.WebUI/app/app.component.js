@@ -17,21 +17,11 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.ngOnInit = function () {
         this.getFunds();
-        // this.getFundsRaw();
     };
     AppComponent.prototype.getFunds = function () {
         var _this = this;
         this.fundService.getFunds()
-            .then(function (funds) { return _this.funds = funds; });
-    };
-    AppComponent.prototype.getFundsRaw = function () {
-        this.fundService.getFundsRaw()
-            .then(function (data) {
-            alert("Alert");
-            console.error("Error Raw: ", data);
-            console.log(data);
-            alert("second alert");
-        });
+            .subscribe(function (funds) { return _this.funds = funds; }, function (error) { return _this.errorMessage = error; });
     };
     AppComponent = __decorate([
         core_1.Component({

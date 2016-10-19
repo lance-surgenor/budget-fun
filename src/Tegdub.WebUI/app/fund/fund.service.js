@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-require('rxjs/add/operator/toPromise');
+require('rxjs/Rx');
 var FundService = (function () {
     function FundService(http) {
         this.http = http;
@@ -18,23 +18,16 @@ var FundService = (function () {
     }
     FundService.prototype.getFunds = function () {
         return this.http.get(this.serviceUrl)
-            .toPromise()
-            .then(function (response) { return response.json(); })
+            .map(this.extractData)
             .catch(this.handleError);
     };
-    FundService.prototype.getFundsRaw = function () {
-        return this.http.get(this.serviceUrl)
-            .toPromise()
-            .then(function (response) { return response.text(); })
-            .catch(this.handleErrorRaw);
+    FundService.prototype.extractData = function (res) {
+        var body = res.json();
+        return body || {};
     };
     FundService.prototype.handleError = function (error) {
         console.error('Error: ', error);
         return Promise.reject(error.message || error);
-    };
-    FundService.prototype.handleErrorRaw = function (error) {
-        console.error('Error Raw: ', error);
-        return Promise.reject("Promise rejected: " + error);
     };
     FundService = __decorate([
         core_1.Injectable(), 

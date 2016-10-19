@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+import { Http, Response } from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 import { Fund } from './fund.model';
 
@@ -11,27 +13,19 @@ export class FundService {
     constructor (private http:Http) {
     }
 
-    getFunds(): Promise<Fund[]> {
+    getFunds(): Observable<Fund[]> {
         return this.http.get (this.serviceUrl)
-                        .toPromise()
-                        .then(response => response.json())
+                        .map(this.extractData)
                         .catch (this.handleError);
     }
 
-    getFundsRaw() {
-        return this.http.get(this.serviceUrl)
-                        .toPromise()
-                        .then(response => response.text())
-                        .catch(this.handleErrorRaw);
+    private extractData(res: Response) {
+        let body = res.json();
+        return body || { };
     }
 
     private handleError(error:any): Promise<any> {
         console.error ('Error: ', error);
         return Promise.reject(error.message || error);
-    }
-
-    private handleErrorRaw(error:any): Promise<any> {
-        console.error('Error Raw: ', error);
-        return Promise.reject("Promise rejected: " + error);
     }
 }

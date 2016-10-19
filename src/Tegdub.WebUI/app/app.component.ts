@@ -26,6 +26,7 @@ import { FundService } from './fund/fund.service';
 })
 
 export class AppComponent implements OnInit {
+    errorMessage: string;
     title = 'Tegdub';
     funds: Fund[];
 
@@ -34,21 +35,12 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         this.getFunds();
-        // this.getFundsRaw();
     }
 
     getFunds(): void {
         this.fundService.getFunds()
-                .then(funds => this.funds = funds);
-    }
-
-    getFundsRaw(): void {
-        this.fundService.getFundsRaw()
-                .then(function(data) {
-                    alert("Alert");
-                    console.error("Error Raw: ", data);
-                    console.log(data);
-                    alert("second alert");
-                })
+                .subscribe(
+                    funds => this.funds = funds,
+                    error => this.errorMessage = <any>error);
     }
 }
