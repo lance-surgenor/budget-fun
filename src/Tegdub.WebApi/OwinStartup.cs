@@ -1,6 +1,7 @@
 ﻿using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Newtonsoft.Json.Serialization;
 using Owin;
 
 namespace Tegdub.WebApi
@@ -29,6 +30,7 @@ namespace Tegdub.WebApi
                 new {id = RouteParameter.Optional});
 
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             appBuilder.UseWebApi(config);
         }
     }
