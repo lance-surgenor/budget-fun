@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 
+// Add a subset of RxJS Observable operators
+import './rxjs-operators';
+
 import { Fund } from './fund/fund.model';
 import { FundService } from './fund/fund.service';
 
@@ -15,9 +18,20 @@ import { FundService } from './fund/fund.service';
             Fund: <span>{{fund.name}}</span>
         </li>
     </ul>
+    <div *ngIf="errorMessage">
+        <span class='error'>Unable to load funds</span>
+        <span class='errorDetail'>{{errorMessage}}</span>
+    </div>
     `,
 
     styles: [`
+    .error {
+        color: red;
+    }
+    .errorDetail {
+        color: gray;
+        font-size: small;
+    }
     `],
 
     providers: [

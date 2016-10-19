@@ -9,6 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+// Add a subset of RxJS Observable operators
+require('./rxjs-operators');
 var fund_service_1 = require('./fund/fund.service');
 var AppComponent = (function () {
     function AppComponent(fundService) {
@@ -26,8 +28,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'tegdub',
-            template: "\n    <h1>{{title}}\n    <h2>Funds</h2>\n    <ul>\n        <li *ngFor=\"let fund of funds\">\n            Fund: <span>{{fund.name}}</span>\n        </li>\n    </ul>\n    ",
-            styles: ["\n    "],
+            template: "\n    <h1>{{title}}\n    <h2>Funds</h2>\n    <ul>\n        <li *ngFor=\"let fund of funds\">\n            Fund: <span>{{fund.name}}</span>\n        </li>\n    </ul>\n    <div *ngIf=\"errorMessage\">\n        <span class='error'>Unable to load funds</span>\n        <span class='errorDetail'>{{errorMessage}}</span>\n    </div>\n    ",
+            styles: ["\n    .error {\n        color: red;\n    }\n    .errorDetail {\n        color: gray;\n        font-size: small;\n    }\n    "],
             providers: [
                 fund_service_1.FundService
             ]
