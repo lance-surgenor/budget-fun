@@ -1,0 +1,10 @@
+/*.listHeader {
+    font-size: small;
+}*/
+.error {
+    color: red;
+}
+.errorDetail {
+    color: gray;
+    font-size: small;
+}

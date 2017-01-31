@@ -1,0 +1,13 @@
+<h2 class='listHeader'>Funds</h2>
+<ul class="funds">
+    <li *ngFor="let fund of funds"
+                [class.selected]="fund === selectedFund">
+        Fund: <span (click)="viewDetail(fund)">{{fund.name}} ({{fund.balance.value}})</span>
+    </li>
+</ul>
+<div *ngIf="errorMessage">
+    <span class='error'>Unable to load funds</span>
+    <span class='errorDetail'>{{errorMessage}}</span>
+</div>
+
+<fund-detail [fund]="selectedFund"></fund-detail>

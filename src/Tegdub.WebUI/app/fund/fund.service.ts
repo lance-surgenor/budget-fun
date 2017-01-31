@@ -18,6 +18,11 @@ export class FundService {
                         .catch (this.handleError);
     }
 
+    getFund(id: number): Promise<Fund> {
+        return this.getFunds()[0];
+                    // .then(funds => funds.find(fund => fund.id === id));
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body || { };

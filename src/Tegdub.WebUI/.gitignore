@@ -1,0 +1,7 @@
+# Angular
+typings/
+node_modules/
+
+# Typescript
+**.js
+**.js.map

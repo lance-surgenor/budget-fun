@@ -1,0 +1,41 @@
+h1 {
+    font-size: small;
+}
+
+.listHeader {
+    font-size: large;
+    color: darkred;
+}
+
+.error {
+    color: red;
+}
+
+.errorDetail {
+    color: gray;
+    font-size: small;
+}
+
+nav a.selected {
+    color: orange;
+}
+
+.funds li {
+    cursor: pointer;
+    position: relative;
+    background-color: lightblue;
+    border-radius: 4px;
+}
+.funds .selected {
+    color: black;
+    background-color:orange;  
+}
+
+.funds li:hover {
+    color: darkblue;
+    background-color: lightgray;
+    left: .1em;
+}
+.funds li.selected:hover {
+    background-color: darkorange;
+}
