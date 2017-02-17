@@ -9,9 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FundListComponent } from './fund/fund-list.component';
 import { FundDetailComponent } from './fund/fund-detail.component';
+import { AccountListComponent } from './account/account-list.component';
+import { AccountDetailComponent } from './account/account-detail.component';
+import { AccountTransactionListComponent } from './account/account-transaction-list.component';
 
 // Services
 import { FundService } from './fund/fund.service';
+import { AccountService } from './account/account.service';
 
 @NgModule ({
     imports: [
@@ -23,9 +27,14 @@ import { FundService } from './fund/fund.service';
     declarations: [
         AppComponent,
         FundListComponent,
-        FundDetailComponent
+        FundDetailComponent,
+        AccountListComponent,
+        AccountDetailComponent,
+        AccountTransactionListComponent
     ],
-    providers: [FundService],
+    providers: [
+        FundService,
+        AccountService],
     bootstrap: [AppComponent]
 })
 

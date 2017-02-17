@@ -1,8 +1,8 @@
 <h2 class='listHeader'>Funds</h2>
-<ul class="funds">
+<ul class="listEntities">
     <li *ngFor="let fund of funds"
                 [class.selected]="fund === selectedFund">
-        Fund: <span (click)="viewDetail(fund)">{{fund.name}} ({{fund.balance.value}})</span>
+        <span (click)="viewDetail(fund)">Fund: {{fund.name}} ({{fund.balance.value}})</span>
     </li>
 </ul>
 <div *ngIf="errorMessage">

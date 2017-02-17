@@ -1,0 +1,13 @@
+<h2 class='listHeader'>Accounts</h2>
+<ul class='listEntities'>
+    <li *ngFor="let account of accounts"
+            [class.selected]="account === selectedAccount">
+        <span (click)="viewDetail(account)">Account {{account.name}}</span>
+    </li>
+</ul>
+<div *ngIf="errorMessage">
+    <span class='error'>Unable to load accounts</span>
+    <span class='erroDetail'>{{errorMessage}}</span>
+</div>
+
+<account-detail [account]="selectedAccount"></account-detail>

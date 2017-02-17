@@ -13,6 +13,7 @@ import { FundService } from './fund/fund.service';
     template: `
     <h1>{{title}}</h1>
     <a routerLink="/funds" routerLinkActive="selected">Funds</a>
+    <a routerLink="/accounts" routerLinkActive="selected">Accounts</a>
     <router-outlet></router-outlet>
     `,
 

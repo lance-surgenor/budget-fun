@@ -9,13 +9,8 @@ namespace Tegdub.WebApi.Models
         [DataMember(Name = "Name")]
         public string Name { get; set; }
 
-        //[DataMember(Name = "Balance")]
+        [DataMember(Name = "Balance")]
         public MoneySerialisable Balance { get; set; }
-
-        public Domain.Fund ToFund()
-        {
-            return new Domain.Fund(Name, Balance.AsMoney());
-        }
 
         public static FundModel FromFund(Domain.Fund fund)
         {

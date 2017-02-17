@@ -33,8 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\FundsController.cs" />
+    <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\FundModel.cs" />
+    <Compile Include="Models\TransactionModel.cs" />
     <Compile Include="OwinStartup.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

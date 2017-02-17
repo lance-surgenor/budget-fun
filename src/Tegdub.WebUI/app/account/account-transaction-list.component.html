@@ -1,0 +1,11 @@
+<h2 class='listHeader'>Transactions for Account {{ this.account.name }}</h2>
+<ul class='listEntities'>
+    <li *ngFor="let transaction of transactions"
+            [class.selected]="transaction === selectedTransaction">
+        <span (click)="viewTransactionDetail(transaction)">Transaction: {{transaction.accountCode}}, {{transaction.amount.value}}</span>
+    </li>
+</ul>
+<div *ngIf="errorMessage">
+    <span class='error'>Unable to load transactions</span>
+    <span class='errorDetail'>{{errorMessage}}</span>
+</div>

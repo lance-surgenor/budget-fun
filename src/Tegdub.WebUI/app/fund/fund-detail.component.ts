@@ -9,7 +9,7 @@ import { FundService } from './fund.service'
     selector: 'fund-detail',
     template: `
     <div *ngIf="fund">
-        <label>Fund: </label>
+        <label>Name: </label>
         <input [(ngModel)]="fund.name" placeholder="name" />
     </div>
     `
@@ -22,8 +22,7 @@ export class FundDetailComponent implements OnInit {
     constructor(
         private fundService: FundService,
         private route: ActivatedRoute,
-        private location: Location
-    ) {
+        private location: Location) {
     }
 
     ngOnInit(): void {

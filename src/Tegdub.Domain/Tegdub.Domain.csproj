@@ -30,9 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Budget.cs" />
-    <Compile Include="BudgetPeriod.cs" />
-    <Compile Include="Fund.cs" />
+    <Compile Include="Account\Account.cs" />
+    <Compile Include="Account\Transaction.cs" />
+    <Compile Include="Budget\Budget.cs" />
+    <Compile Include="Budget\BudgetPeriod.cs" />
+    <Compile Include="Fund\Fund.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

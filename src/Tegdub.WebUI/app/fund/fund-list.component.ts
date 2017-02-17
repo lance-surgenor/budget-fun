@@ -10,7 +10,7 @@ import { FundService } from './fund.service';
     moduleId: module.id,
     selector: 'fund-list',
     templateUrl: 'fund-list.component.html',
-    styleUrls: ['fund-list.component.css']
+    styleUrls: ['../../styles.css']
 })
 
 export class FundListComponent implements OnInit {

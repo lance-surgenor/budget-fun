@@ -25,9 +25,17 @@ namespace Tegdub.WebApi
                 methods: "*"));
 
             config.Routes.MapHttpRoute(
+                "ActionApi",
+                "api/{controller}/{code}/{action}/{id}",
+                new { action = "default", id = RouteParameter.Optional });
+            config.Routes.MapHttpRoute(
                 "DefaultApi",
-                "api/{controller}/{id}",
-                new {id = RouteParameter.Optional});
+                "api/{controller}/{code}",
+                new { code = RouteParameter.Optional });
+            //config.Routes.MapHttpRoute(
+            //    "DefaultApi",
+            //    "api/{controller}/{id}",
+            //    new {id = RouteParameter.Optional});
 
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();

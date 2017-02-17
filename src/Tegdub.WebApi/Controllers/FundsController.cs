@@ -8,7 +8,7 @@ namespace Tegdub.WebApi.Controllers
     public class FundsController
         : ApiController
     {
-        public IEnumerable<FundModel>Get()
+        public IEnumerable<FundModel> Get()
         {
             return new[]
             {

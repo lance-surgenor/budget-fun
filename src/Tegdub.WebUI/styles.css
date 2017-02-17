@@ -2,11 +2,6 @@ h1 {
     font-size: small;
 }
 
-.listHeader {
-    font-size: large;
-    color: darkred;
-}
-
 .error {
     color: red;
 }
@@ -20,22 +15,27 @@ nav a.selected {
     color: orange;
 }
 
-.funds li {
+.listHeader {
+    font-size: large;
+    color: darkred;
+}
+
+.listEntities li {
     cursor: pointer;
     position: relative;
     background-color: lightblue;
     border-radius: 4px;
 }
-.funds .selected {
+.listEntities .selected {
     color: black;
     background-color:orange;  
 }
 
-.funds li:hover {
+.listEntities li:hover {
     color: darkblue;
     background-color: lightgray;
     left: .1em;
 }
-.funds li.selected:hover {
+.listEntities li.selected:hover {
     background-color: darkorange;
 }
